@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <template id="captcha-tmp">
+    <input type="checkbox" name="" id="">
+    <label for="">I am not a robot</label>
+    <div class="captcha-credits">
+      <svg width="30" height="30" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.753 14a2.25 2.25 0 0 1 2.25 2.25v.905a3.75 3.75 0 0 1-1.307 2.846C17.13 21.345 14.89 22 12 22c-2.89 0-5.128-.656-6.691-2a3.75 3.75 0 0 1-1.306-2.843v-.908A2.25 2.25 0 0 1 6.253 14h11.5ZM11.898 2.008 12 2a.75.75 0 0 1 .743.648l.007.102V3.5h3.5a2.25 2.25 0 0 1 2.25 2.25v4.505a2.25 2.25 0 0 1-2.25 2.25h-8.5a2.25 2.25 0 0 1-2.25-2.25V5.75A2.25 2.25 0 0 1 7.75 3.5h3.5v-.749a.75.75 0 0 1 .648-.743L12 2l-.102.007ZM9.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Zm4.493 0a1.25 1.25 0 1 0 0 2.499 1.25 1.25 0 0 0 0-2.499Z" fill="#fff"/></svg>
+      <span>bCaptcha</span>
+    </div>
+  </template>
+
+  <div id="darken">
+    <div id="dialog-newproducts-sure" class="dialog">
+      <h2>Are you sure?</h2>
+      <p>We have very good products that we want to present to you.</p>
+      <div class="dialog-buttons">
+        <a id="dialog-newproducts-sure-no" style="color: #ccc;">Still no</a>
+        <button id="dialog-newproducts-sure-yes">Ok fine</button>
+      </div>
+    </div>
+    <div id="dialog-emailflood-sure" class="dialog">
+      <h2>Are you sure?</h2>
+      <p>We are very good at spamming emails with 600 emails/second.</p>
+      <div class="dialog-buttons">
+        <a id="dialog-emailflood-sure-no" style="color: #ccc;">Still no</a>
+        <button id="dialog-emailflood-sure-yes">Ok fine</button>
+      </div>
+    </div>
+  </div>
+
+  <h1>Register (<span id="timer">0</span>)</h1>
+  <span>Please verify that you are a human:</span>
+  <div class="captcha"></div>
+  <br>
+
+  <input type="text" placeholder="Name">
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password" id="pw">
+  <input type="password" placeholder="Confirm Password" id="pw2">
+  <input type="password" placeholder="Confirm Password Again" id="pw3">
+
+  <br><br>
+  <input type="checkbox" id="terms-cb">
+  <label for="">I agree to the terms and conditions</label>
+
+  <br>
+  <input type="checkbox" id="newproducts-cb" checked>
+  <label for="">I want to receive emails about new products</label>
+
+  <br>
+  <input type="checkbox" id="emailflood-cb" checked>
+  <label for="">My email box is clean, please flood it with even more shit.</label>
+  
+  <br><br>
+  <span>Please verify that you are a human again, just to be sure:</span>
+  <div class="captcha"></div>
+
+  <button id="submit">Submit</button>
+  <span id="error"></span>
+  
+  <script src="dialog.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
