@@ -27,8 +27,15 @@ $$(".captcha").forEach(function(el) {
 
   el.querySelector("input").addEventListener("click", async function(e) {
     e.preventDefault();
+    if(!el.querySelector("input").checked) {
+      return;
+    }
+    el.querySelector(".progress-ring").style.display = "";
+    el.querySelector("input").style.display = "none";
     await sleep(1000);
-    if(randomRange(0, 3) == 2) {
+    el.querySelector(".progress-ring").style.display = "none";
+    el.querySelector("input").style.display = "";
+    if(randomRange(0, 2) == 2) {
       el.querySelector("input").checked = true;
     }
   });
