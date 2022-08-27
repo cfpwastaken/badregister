@@ -26,10 +26,10 @@ $$(".captcha").forEach(function(el) {
   el.querySelector("input").checked = false;
 
   el.querySelector("input").addEventListener("click", async function(e) {
-    e.preventDefault();
-    if(!el.querySelector("input").checked) {
+		if(!el.querySelector("input").checked) {
       return;
     }
+		e.preventDefault();
     el.querySelector(".progress-ring").style.display = "";
     el.querySelector("input").style.display = "none";
     await sleep(1000);
@@ -92,13 +92,32 @@ $("#dialog-emailflood-sure-yes").addEventListener("click", (e) => {
   emailflooddialog.hide();
 })
 
+const EMAIL_REGEX = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+
 $("#submit").addEventListener("click", (e) => {
   let error = "";
 
-  if($("#pw").value == $("#pw2").value && $("#pw2").value == $("#pw3").value) {
-    
-  } else {
+	if($("#pw").value.length < 8) {
+		error = "Password must be at least 8 characters long.";
+	}
+	if(!$("#pw").value.match(/[0-9]/)) {
+		error = "Password must contain at least one number.";
+	}
+	if(!$("#pw").value.match(/[A-Z]/)) {
+		error = "Password must contain at least one capital.";
+	}
+	if(!$("#pw").value.match(/[a-z]/)) {
+		error = "Password must contain at least one lowercase character.";
+	}
+
+  if(!($("#pw").value == $("#pw2").value && $("#pw2").value == $("#pw3").value)) {
     error = "Passwords dont match. Which ones dont match? Well we dont know.";
+  }
+  if($("#name").value.length < 3) {
+    error = "Name must be at least 3 characters long.";
+  }
+  if(!$("#email").value.match(EMAIL_REGEX)) {
+    error = "Email must be valid.";
   }
   if(!$("#terms-cb").checked) {
     error = "You must agree to the terms and conditions.";
