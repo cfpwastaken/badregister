@@ -1,13 +1,8 @@
 // TODO: better captchas
 // TODO: cookie banners?
 
-function $(el) {
-  return document.querySelector(el);
-}
-
-function $$(el) {
-  return document.querySelectorAll(el);
-}
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -19,6 +14,68 @@ function randomRange(min, max) {
 
 const newproductsdialog = new Dialog($("#dialog-newproducts-sure")).disappear();
 const emailflooddialog = new Dialog($("#dialog-emailflood-sure")).disappear();
+const sellingdatadialog = new Dialog($("#dialog-selling-data")).disappear();
+const cookieoptionsdialog = new Dialog($("#dialog-cookies-options")).disappear();
+const cookiepaydialog = new Dialog($("#dialog-cookies-pay")).disappear();
+const cookiesdialog = new Dialog($("#dialog-cookies")).show();
+
+let cookies_approved = false;
+
+$$(".cookie-option").forEach(el => {
+	el.querySelector("input").checked = true;
+})
+
+async function sellData() {
+	await cookiesdialog.hide();
+	await sellingdatadialog.show();
+	await sleep(1000);
+	$("#dialog-cookies-status").innerText = "Contacting Facebook for even more data...";
+	await sleep(3000);
+	$("#dialog-cookies-status").innerText = "Selling data on the dark web...";
+	await sleep(4000);
+	$("#dialog-cookies-status").innerText = "Shoot, you were not meant to see this.";
+	await sleep(1000);
+	sellingdatadialog.hide();
+	cookies_approved = true;
+}
+
+$("#dialog-cookies-pay-yes").addEventListener("click", async () => {
+	await cookiepaydialog.hide();
+	$("#selling-data").innerHTML = "Lol, you clicked on accept all.<br>One moment please, we are selling your data";
+	sellData();
+})
+
+$("#dialog-cookies-pay-purchase").addEventListener("click", async () => {
+	$("#dialog-cookies-pay-purchase").innerText = "Not enough money.";
+	$("#dialog-cookies-pay-purchase").disabled = true;
+})
+
+$("#dialog-cookies-pay-already-paid").addEventListener("click", async () => {
+	$("#dialog-cookies-pay-already-paid").innerText = "Ok good";
+	await cookiepaydialog.hide();
+})
+
+$("#dialog-cookies-options-yes").addEventListener("click", async () => {
+	await cookieoptionsdialog.hide();
+	$("#selling-data").innerHTML = "Lol, you clicked on accept all.<br>One moment please, we are selling your data";
+	sellData();
+});
+$("#dialog-cookies-yes").addEventListener("click", sellData);
+
+$("#dialog-cookies-no").addEventListener("click", async () => {
+	await cookiesdialog.hide();
+	cookieoptionsdialog.show();
+})
+
+$("#dialog-cookies-options-no").addEventListener("click", async () => {
+	await cookieoptionsdialog.hide();
+	if(!($("#co-1").checked || $("#co-2").checked || $("#co-3").checked || $("#co-4").checked)) {
+		cookiepaydialog.show();
+	} else {
+		$("#selling-data").innerHTML = "Lol, you accepted all cookies.<br>One moment please, we are selling your data";
+		sellData();
+	}
+})
 
 $$(".captcha").forEach(function(el) {
   el.innerHTML = $("#captcha-tmp").innerHTML;
@@ -132,6 +189,12 @@ $("#submit").addEventListener("click", (e) => {
     clearInterval(timeinterval);
     $("#submit").disabled = true;
     $("#error").innerText = "You did it!";
+		if($("#newproducts-cb").checked || $("#emailflood-cb").checked) {
+			$("#error").innerText += " Prepare your email to be full within a few hours.";
+		}
+		if(cookies_approved) {
+			$("#error").innerText += " Also thanks for your data. It made us a lot of money.";
+		}
   } else {
     $("#error").innerText = error;
   }

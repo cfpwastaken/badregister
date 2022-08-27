@@ -39,6 +39,67 @@
         <button id="dialog-emailflood-sure-yes">Ok fine</button>
       </div>
     </div>
+    <div id="dialog-cookies" class="dialog">
+      <h2>Cookies taste very good.</h2>
+      <p style="text-align: center;">We and our partners use cookies to provide you with a better, safer and faster service and to support our business.<br>Some cookies are not really necessary to use our services but we mark them as such anyway.</p>
+      <div class="dialog-buttons" id="dialog-buttons-cookies">
+        <button id="dialog-cookies-yes">Continue with recommended settings</button>
+        <a id="dialog-cookies-no" style="color: #ccc;">More options</a>
+      </div>
+    </div>
+    <div id="dialog-selling-data" class="dialog">
+      <h2 id="selling-data" style="text-align: center;">One moment please, we are selling your data</h2>
+			<p id="dialog-cookies-status">Collecting data...</p>
+			<div class="progress-ring" style="width: 50px; height: 50px; margin-top: 10px;">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="ring">
+					<circle class="dynamic" cx="50%" cy="50%" r="43.75%"></circle>
+				</svg>
+			</div>
+    </div>
+    <div id="dialog-cookies-options" class="dialog">
+      <h2>Cookie options</h2>
+			<p>Sorry, but we do not have the high tech technology for a button that declines all.<br>You might as well just accept them all so we can sell your- i mean give you a better experience.</p>
+			<div id="cookie-options">
+				<div class="cookie-option">
+					<input type="checkbox" checked disabled>
+					<span>Required</span><br>
+					<span>This is to give you a better experience. Trust me.</span>
+				</div>
+				<div class="cookie-option">
+					<input type="checkbox" checked id="co-1">
+					<span>Collect data so we can sell it</span><br>
+					<span>This is to give you an even better experience. You gotta trust me on that one.</span>
+				</div>
+				<div class="cookie-option">
+					<input type="checkbox" checked id="co-2">
+					<span>Personalized ads</span><br>
+					<span>Give you a better experience with ads. Not that ads are a good experience. Also we sell that data.</span>
+				</div>
+				<div class="cookie-option">
+					<input type="checkbox" checked id="co-3">
+					<span>Exact location</span><br>
+					<span>Used so we can hire a hitman to kill you.</span>
+				</div>
+				<div class="cookie-option">
+					<input type="checkbox" checked id="co-4">
+					<span>Legitemate Interest</span><br>
+					<span>Totally legit</span>
+				</div>
+			</div>
+			<div class="dialog-buttons">
+        <button id="dialog-cookies-options-yes">Accept all</button>
+        <a id="dialog-cookies-options-no" style="color: #ccc;">Confirm my choices</a>
+      </div>
+    </div>
+    <div id="dialog-cookies-pay" class="dialog">
+      <h2>Cookies</h2>
+			<p style="text-align: center;">You have chosen to disable all cookies. Well, that sucks.<br>You gotta pay 4,99€ a month to disable those even though its illegal to do so.</p>
+			<div class="dialog-buttons">
+        <button id="dialog-cookies-pay-yes">Ok no, accept all</button>
+        <button id="dialog-cookies-pay-purchase">Pay with PayPal</button>
+        <button id="dialog-cookies-pay-already-paid">I already paid</button>
+      </div>
+    </div>
   </div>
 
   <h1>Register (<span id="timer">0</span>)</h1>
