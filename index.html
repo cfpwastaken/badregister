@@ -23,7 +23,7 @@
   </template>
 
   <div id="darken">
-    <div id="dialog-newproducts-sure" class="dialog">
+    <div id="dialog-newproducts-sure" class="dialog" style="display: none;">
       <h2>Are you sure?</h2>
       <p>We have very good products that we want to present to you.</p>
       <div class="dialog-buttons">
@@ -31,7 +31,7 @@
         <button id="dialog-newproducts-sure-yes">Ok fine</button>
       </div>
     </div>
-    <div id="dialog-emailflood-sure" class="dialog">
+    <div id="dialog-emailflood-sure" class="dialog" style="display: none;">
       <h2>Are you sure?</h2>
       <p>We are very good at spamming emails with 600 emails/second.</p>
       <div class="dialog-buttons">
@@ -39,7 +39,7 @@
         <button id="dialog-emailflood-sure-yes">Ok fine</button>
       </div>
     </div>
-    <div id="dialog-cookies" class="dialog">
+    <div id="dialog-cookies" class="dialog" style="display: none;">
       <h2>Cookies taste very good.</h2>
       <p style="text-align: center;">We and our partners use cookies to provide you with a better, safer and faster service and to support our business.<br>Some cookies are not really necessary to use our services but we mark them as such anyway.</p>
       <div class="dialog-buttons" id="dialog-buttons-cookies">
@@ -47,7 +47,7 @@
         <a id="dialog-cookies-no" style="color: #ccc;">More options</a>
       </div>
     </div>
-    <div id="dialog-selling-data" class="dialog">
+    <div id="dialog-selling-data" class="dialog" style="display: none;">
       <h2 id="selling-data" style="text-align: center;">One moment please, we are selling your data</h2>
 			<p id="dialog-cookies-status">Collecting data...</p>
 			<div class="progress-ring" style="width: 50px; height: 50px; margin-top: 10px;">
@@ -56,7 +56,7 @@
 				</svg>
 			</div>
     </div>
-    <div id="dialog-cookies-options" class="dialog">
+    <div id="dialog-cookies-options" class="dialog" style="display: none;">
       <h2>Cookie options</h2>
 			<p>Sorry, but we do not have the high tech technology for a button that declines all.<br>You might as well just accept them all so we can sell your- i mean give you a better experience.</p>
 			<div id="cookie-options">
@@ -91,7 +91,7 @@
         <a id="dialog-cookies-options-no" style="color: #ccc;">Confirm my choices</a>
       </div>
     </div>
-    <div id="dialog-cookies-pay" class="dialog">
+    <div id="dialog-cookies-pay" class="dialog" style="display: none;">
       <h2>Cookies</h2>
 			<p style="text-align: center;">You have chosen to disable all cookies. Well, that sucks.<br>You gotta pay 4,99€ a month to disable those even though its illegal to do so.</p>
 			<div class="dialog-buttons">
@@ -99,6 +99,10 @@
         <button id="dialog-cookies-pay-purchase">Pay with PayPal</button>
         <button id="dialog-cookies-pay-already-paid">I already paid</button>
       </div>
+    </div>
+    <div id="dialog-noscript" class="dialog">
+      <h2>NoScript</h2>
+			<p style="text-align: center;">Seems like you have NoScript installed.<br>Well too bad because this website requires JavaScript to work correctly.</p>
     </div>
   </div>
 

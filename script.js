@@ -4,6 +4,8 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+new Dialog($("#dialog-noscript")).disappear();
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
