@@ -200,3 +200,25 @@ button {
 		transform: scale(0);
 	}
 }
+
+#container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 5px;
+}
+
+#grid > img:not(.selected) {
+  border: 5px solid #3d3d3d;
+}
+
+.selected {
+  border: 5px solid white;
+}

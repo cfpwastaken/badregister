@@ -95,6 +95,10 @@ $$(".captcha").forEach(function(el) {
     el.querySelector(".progress-ring").style.display = "none";
     el.querySelector("input").style.display = "";
     if(randomRange(0, 2) == 2) {
+      new Dialog($("#dialog-captcha")).show();
+      return;
+    }
+    if(randomRange(0, 2) == 2) {
       el.querySelector("input").checked = true;
     }
   });
@@ -208,3 +212,30 @@ let timeinterval = setInterval(() => {
   timer++;
   $("#timer").innerText = timer;
 }, 1000);
+
+$$("#grid > img").forEach((el) => {
+  el.addEventListener("click", (e) => {
+    if(el.classList.contains("selected")) {
+      el.classList.remove("selected");
+    } else {
+      el.classList.add("selected");
+    }
+  });
+});
+
+$("#dialog-captcha-done").addEventListener("click", (e) => {
+  $("#dialog-captcha-done").disabled = true;
+  $("#dialog-captcha-done").innerText = "Hold on I'm pretending to do something...";
+  setTimeout(async () => {
+    $("#dialog-captcha-done").disabled = false;
+    $("#dialog-captcha-done").innerText = "Sure thing!";
+    const chance = randomRange(0, 2) == 2;
+    if(chance) {
+      new Dialog($("#dialog-captcha")).hide();
+    } else {
+      $("#dialog-captcha").classList.add("shake");
+      await sleep(820);
+      $("#dialog-captcha").classList.remove("shake");
+    }
+  }, 3000);
+});

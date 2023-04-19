@@ -104,38 +104,65 @@
       <h2>NoScript</h2>
 			<p style="text-align: center;">Seems like you have NoScript installed.<br>Well too bad because this website requires JavaScript to work correctly.</p>
     </div>
+    <div id="dialog-captcha" class="dialog" style="display: none;">
+      <h2>bCaptcha</h2>
+			<p style="text-align: center;">Please take a moment to help us train AI to kill us all.</p>
+      <div id="grid">
+        <img src="https://picsum.photos/150?a">
+        <img src="https://picsum.photos/150?b">
+        <img src="https://picsum.photos/150?c">
+        <img src="https://picsum.photos/150?d">
+        <img src="https://picsum.photos/150?e">
+        <img src="https://picsum.photos/150?f">
+        <img src="https://picsum.photos/150?g">
+        <img src="https://picsum.photos/150?h">
+        <img src="https://picsum.photos/150?i">
+        <img src="https://picsum.photos/150?j">
+        <img src="https://picsum.photos/150?k">
+        <img src="https://picsum.photos/150?l">
+      </div>
+      <button id="dialog-captcha-done">Sure thing!</button>
+    </div>
   </div>
 
-  <h1>Register (<span id="timer">0</span>)</h1>
-  <span>Please verify that you are a human:</span>
-  <div class="captcha"></div>
-  <br>
-
-  <input type="text" placeholder="Name" id="name" autocomplete="off">
-  <input type="email" placeholder="Email" id="email" autocomplete="off">
-  <input type="password" placeholder="Password" id="pw" autocomplete="off">
-  <input type="password" placeholder="Confirm Password" id="pw2" autocomplete="off">
-  <input type="password" placeholder="Confirm Password Again" id="pw3" autocomplete="off">
-
-  <br><br>
-  <input type="checkbox" id="terms-cb">
-  <label for="">I agree to the terms and conditions</label>
-
-  <br>
-  <input type="checkbox" id="newproducts-cb" checked>
-  <label for="">I want to receive emails about new products</label>
-
-  <br>
-  <input type="checkbox" id="emailflood-cb" checked>
-  <label for="">My email box is clean, please flood it with even more shit.</label>
+  <div id="container">
+    <h1>Register (<span id="timer">0</span>)</h1>
+    <span>Please verify that you are a human:</span>
+    <div class="captcha"></div>
+    <br>
   
-  <br><br>
-  <span>Please verify that you are a human again, just to be sure:</span>
-  <div class="captcha"></div>
-	<br>
-
-  <button id="submit">Submit</button>
-  <span id="error"></span>
+    <input type="text" placeholder="Name" id="name" autocomplete="off">
+    <input type="email" placeholder="Email" id="email" autocomplete="off">
+    <input type="password" placeholder="Password" id="pw" autocomplete="off">
+    <input type="password" placeholder="Confirm Password" id="pw2" autocomplete="off">
+    <input type="password" placeholder="Confirm Password Again" id="pw3" autocomplete="off">
+  
+    <br><br>
+    <div>
+      <input type="checkbox" id="terms-cb">
+      <label for="">I agree to the terms and conditions</label>
+    </div>
+  
+    <br>
+    <div>
+      <input type="checkbox" id="newproducts-cb" checked>
+      <label for="">I want to receive emails about new products</label>
+    </div>
+  
+    <br>
+    <div>
+      <input type="checkbox" id="emailflood-cb" checked>
+      <label for="">My email box is clean, please flood it with even more shit.</label>
+    </div>
+    
+    <br><br>
+    <span>Please verify that you are a human again, just to be sure:</span>
+    <div class="captcha"></div>
+    <br>
+  
+    <button id="submit">Submit</button>
+    <span id="error"></span>
+  </div>
   
   <script src="dialog.js"></script>
   <script src="script.js"></script>
